@@ -43,6 +43,7 @@ import GetshopsProducts from './Home/getshopsProducts';
 import Weightrate from './Welcome/weightrate';
 import AddCarousel from './AddCarousel';
 import ViewArea from './Welcome/viewArea';
+import Addarea from './Area';
 
 
 
@@ -108,8 +109,9 @@ const Router = (props) => {
 
         <PrivateRoute path="/adminOrders" component={AdminOrders} />
         <PrivateRoute path="/accountstatus" component={AccountStatus} />
-        <PrivateRoute path="/area" component={Area} />
+        {/* <PrivateRoute path="/area" component={Area} /> */}
         <PrivateRoute path="/market" component={Market} />
+        <PrivateRoute path="/Addarea" component={Addarea} />
         <PrivateRoute path="/addcarousel" component={AddCarousel} />
       
         

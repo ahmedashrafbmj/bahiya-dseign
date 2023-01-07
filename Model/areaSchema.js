@@ -2,11 +2,10 @@ const mongoose = require('mongoose');
 
 const areaSchema = mongoose.Schema({
 
-    areaName: {type:String},
-    imageURL : {type:String},
+    categoryName: {type:String},
+    imageURL: {type:String},
     userEmail: {type: String},
     hotelname : {type: String}
-
 }) 
 
 

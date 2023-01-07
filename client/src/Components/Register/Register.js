@@ -39,7 +39,7 @@ const uploadImage = async e =>{
   })
 
   const file = await res.json()
-  console.log(file)
+  console.log(file,'file')
 
   setImage(file.secure_url)
 

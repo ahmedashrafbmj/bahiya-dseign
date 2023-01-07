@@ -82,12 +82,12 @@ const Login=(props)=>{
         history.push('/Welcome')
     }
 
-    else if (roleua === 'Admin' && roleua4 === 'Disabled'){
+    else if (roleua === 'Admin' && roleua4 === 'Disabled' ){
  
      history.push('/accountstatus')
  }
     
-    else if (roleua === 'Super'){
+    else if (roleua === 'Super' ){
 
         history.push('/Welcome2')
 
@@ -142,6 +142,7 @@ const getrole = async () => {
 
    
     const role = await res3.json();
+    console.log(role,'roleee')
 
 
 
@@ -157,6 +158,7 @@ const getrole = async () => {
     console.log(accountStatus, 'status')
 
     localStorage.setItem('role', [userRole])
+    console.log('role',[userRole])
 
     localStorage.setItem('accountstatus', [accountStatus])
 
@@ -189,6 +191,11 @@ const getrole = async () => {
        if (!roleua2){
            history.push('/login')
        }
+       else if (roleua2 === 'Super'){
+    
+        history.push('/Welcome2')
+
+    }
 
        else if (roleua2 === 'Admin' && roleua3 === 'Enabled'){
     
@@ -200,11 +207,7 @@ const getrole = async () => {
         history.push('/accountstatus')
     }
        
-       else if (roleua2 === 'Super'){
     
-        history.push('/Welcome2')
-
-    }
        
        else{
            history.push('/')
@@ -229,7 +232,7 @@ return(
                 <h1 className="form__title">Log In</h1>
 
                 <div className="form__div">
-                    <input type="text"  onKeyPress={getrole} className="form__input" placeholder=" "   onChange={e => setData({...data,  email: e.target.value})} />
+                    <input type="text"  onKeyPress={getrole} className="form__input" placeholder=" "   onChange={(e) => setData({...data,  email: e.target.value})} />
                     <label className="form__label">Email</label>
                 </div>
 

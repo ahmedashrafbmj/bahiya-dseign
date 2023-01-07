@@ -28,7 +28,7 @@ const AdminProfile=(props)=>{
         const fetchDetails= async () => {
             const res = await fetch(`/api/postbyemailsignup/${userEmail}`);
             const data = await res.json();
-            console.log(data);
+            console.log(data,'data signup');
             setHotel(data);
         };
         
