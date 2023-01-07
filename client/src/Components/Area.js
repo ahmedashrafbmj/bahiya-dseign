@@ -370,9 +370,33 @@ const [roleau, setroleau] = useState ('');
 const [categoryDetail, setcategoryDetail] = useState({
   
   categoryName: "",
-  imageURL: ""
+//   imageURL: ""
 
 })
+const [loading, setLoading] = useState(false);
+const [image, setImage] = useState("");
+
+const uploadImage = async e =>{
+    const files = e.target.files
+    const data = new FormData()
+    data.append('file', files[0])
+    data.append('upload_preset', 'testforecommerce')
+    setLoading(true)
+  
+    const res = await fetch("https://api.cloudinary.com/v1_1/fimgcloud/image/upload",
+    {
+      method: 'POST',
+      body: data
+    })
+  
+    const file = await res.json()
+    console.log(file.url,'file')
+  
+    setImage(file.url)
+  
+    setLoading(false)
+  
+  }
     
 
 
@@ -386,16 +410,17 @@ const addPost=()=>{
         const headers = { "Content-Type": "application/json" };
         axios.post(`/api/allpostarea`,{
             categoryName:categoryDetail.categoryName,
-            imageURL:categoryDetail.imageURL,
+            imageURL:image,
             userEmail: localStorage.getItem('user'),
             hotelname: localStorage.getItem('hotel'),
 },{
 headers,
 })
 
+
 .then((success)=>{
 console.log('success',success)
-// history.push('')
+history.push('/viewarea')
 })
 
 
@@ -407,6 +432,7 @@ console.log('success',success)
 
       
 }
+console.log(image,'image')
             
 
 const routeto=()=>{
@@ -469,10 +495,19 @@ return(
                 </div>
 
 
-                <div className="form__div">
+                {/* <div className="form__div">
                     <input type="text" className="form__input" placeholder=" " onChange={ (e)=>{setcategoryDetail({...categoryDetail, imageURL: e.target.value})} } />
                     <label  className="form__label"> Image</label>
-                </div>
+                </div> */}
+                <input type='file' name = 'file' onChange = {uploadImage}/>
+                {
+      loading?( //if
+        <h3>Loading ... </h3>
+      ): ( //else
+
+        <img src={image} width={{width: '20px'}} />
+      )
+    }
 
                 <input type="button" className="form__button" value="Add" onClick={()=>{addPost()}} />
             </form>

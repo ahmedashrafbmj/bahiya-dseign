@@ -356,7 +356,7 @@ useEffect(() => {
             </Row>
       </Container> */}
 
-    <h1 class="text-center" style={{fontFamily:"cursive",fontWeight:"bold"}}> <u class="text-center" style={{fontFamily:"cursive",fontWeight:"bold"}}>>All Areas:</u> </h1>
+    <h1 class="text-center" style={{fontFamily:"cursive",fontWeight:"bold"}}> <u class="text-center" style={{fontFamily:"cursive",fontWeight:"bold"}}>All Areas:</u> </h1>
     <Container>
       <Row>
 
@@ -369,10 +369,10 @@ useEffect(() => {
                     <Card style={{ width: '18rem' }}>
                     <Card.Img variant="top" src={category.imageURL}/>
                         <Card.Body>
-                            <Card.Title>{category.areaName} </Card.Title>
+                            <Card.Title>{category.categoryName} </Card.Title>
                           
 
-                            <Button  variant="primary" href={`ShowMarket/${category.areaName}`}> Show Market</Button>
+                            <Button  variant="primary" href={`ShowMarket/${category.categoryName}`}> Show Market</Button>
                         
                         </Card.Body>
                         </Card>

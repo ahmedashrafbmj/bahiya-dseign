@@ -109,9 +109,9 @@ const Router = (props) => {
 
         <PrivateRoute path="/adminOrders" component={AdminOrders} />
         <PrivateRoute path="/accountstatus" component={AccountStatus} />
-        {/* <PrivateRoute path="/area" component={Area} /> */}
+        <PrivateRoute path="/area" component={Addarea} />
         <PrivateRoute path="/market" component={Market} />
-        <PrivateRoute path="/Addarea" component={Addarea} />
+        {/* <PrivateRoute path="/Addarea" component={Addarea} /> */}
         <PrivateRoute path="/addcarousel" component={AddCarousel} />
       
         

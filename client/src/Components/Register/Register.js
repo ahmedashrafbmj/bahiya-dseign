@@ -205,7 +205,7 @@ return(
 
 {areaData.map((area) => (
     
-<option> {area.areaName}</option>
+<option> {area.categoryName}</option>
 
 ))}
 

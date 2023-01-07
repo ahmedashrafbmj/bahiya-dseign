@@ -141,9 +141,10 @@ return(
   <option value="Clifton">Clifton</option> */}
 
 {areaData.map((area) => (
-
-<option> {area.areaName}</option>
-
+<>
+<option> Area</option>
+<option> {area.categoryName}</option>
+</>
 ))}
 
               
