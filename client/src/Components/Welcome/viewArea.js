@@ -528,16 +528,15 @@ return(
 <br />
 <br />
 
-<div className='Heading'><h1>Name: {hotelname}</h1> 
+{/* <div className='Heading'><h1>Name: {hotelname}</h1> 
 <br />
 
-{/* <h1>{useremail}</h1> */}
 
 
 
 
 
-</div>
+</div> */}
 
 
 <div style={{ backgroundColor: "", minHeight: "100vh" }}>

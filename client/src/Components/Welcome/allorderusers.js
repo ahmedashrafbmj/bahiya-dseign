@@ -7,6 +7,8 @@ import axios from 'axios'
 import {Table} from 'react-bootstrap';
 import Sheader from '../Main/sHeader';
 import "../../index.css"
+import { createContext } from "react";
+import Welcome2 from './sWelcome';
 
 
 
@@ -123,6 +125,8 @@ alert("delete successfully")
     getdata()
 
 }
+const PetDataContext = createContext(userState);
+console.log(PetDataContext,"PetDataContext")
 
 
 
@@ -251,6 +255,7 @@ return(
 
 
 </div>
+{/* <Welcome2 style={{display:"none"}} data={userState}/> */}
 
 </>
 

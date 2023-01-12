@@ -126,6 +126,9 @@ return(
                 <input type="button" className="form__button" value="Register" onClick={registerc} />
                 <br />
                 <input type="button" className="form__button" value="Log In" onClick={()=>{history.push('/login')}} />
+                <br/>
+                <input type="button" className="form__button" value="Signup As Seller" onClick={()=>{history.push('/register')}} />
+
             </form>
         </div>
         

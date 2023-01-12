@@ -10,6 +10,7 @@ import { AlertTitle } from '@mui/material';
 import Sheader from '../Main/sHeader';
 import classes from "./Order.module.css"
 import { Link } from 'react-router-dom';
+import EditCategory from './EditCategory';
 
 
 const ViewCategory=(props)=>{
@@ -160,17 +161,20 @@ return(
     }
 <br />
 <br />
-
-<div className='Heading'><h1>Name: {hotelname}</h1> 
+<br />
+<br />
+<br />
 <br />
 
-{/* <h1>{useremail}</h1> */}
+{/* <div className='Heading'><h1>Name: {hotelname}</h1> 
+<br />
 
 
 
 
 
-</div>
+
+</div> */}
 
 
 <div style={{ backgroundColor: "", minHeight: "100vh" }}>
@@ -215,7 +219,7 @@ return(
                                                 <td>{element.productPrice}</td>
 
         <td  valign="middle">{element._id}</td> */}
-        <Link to="editcategory/${element._id}">
+        <Link to={`editcategory/${element._id}`}>
         <td className={classes.btn} valign="middle">{"Edit"}</td>
 
         </Link>

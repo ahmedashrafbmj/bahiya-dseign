@@ -82,7 +82,7 @@ return(
 
 <nav class="navbar navbar-light fixed-top bg-light">
 <Navbar bg="light" variant={"light"} expand="lg">
-                        <Navbar.Brand href="#">Shop Hub</Navbar.Brand>
+                        <Navbar.Brand href="/">Shop Hub</Navbar.Brand>
                         <Navbar.Toggle aria-controls="navbarScroll" />
                         <Navbar.Collapse id="navbarScroll">
                             <Nav
@@ -97,12 +97,17 @@ return(
                                 <Nav.Link as={Link} to="/about">About</Nav.Link>
                                 <Nav.Link as={Link} to="/contact">Contact</Nav.Link> */}
 
-<div className='btn'>
-<a class="btn btn-primary" href="/" role="button">Home</a>
+<div className='btn' style={{marginLeft:"350px"}}>
+{/* <a class="btn btn-primary" href="/" role="button">Home</a> */}
+<div class="dropdown">
+  {/* <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    Dropdown button
+  </button> */}
+  
+  </div>
+<a class="btn btn-primary" href="/userregister" role="button">Signup</a>
 
-<a class="btn btn-primary" href="/userregister" role="button">Signup User</a>
-
-<a class="btn btn-primary" href="/register" role="button">Signup As a Seller</a>
+{/* <a class="btn btn-primary" href="/register" role="button">Signup As a Seller</a> */}
 
 <a class="btn btn-outline-primary" href="/Login" role="button">Login</a>
 

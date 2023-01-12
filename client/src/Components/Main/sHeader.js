@@ -152,7 +152,7 @@ const logout=()=>{
     </Space> */}
     <MenuIcon onClick={showDrawer} />
       <Drawer  style={{fontFamily: "Crimes Times Six",}}
-        title="Shop Hub"
+        title={<a href="/welcome2">Shop Hub</a>}
         placement={placement}
         width={500}
         onClose={onClose}
@@ -162,8 +162,8 @@ const logout=()=>{
           </Space>
         }
       >
-        <div className='dic'>
-        <p><a href="/">Home</a></p></div>
+        {/* <div className='dic'>
+        <p><a href="/">Home</a></p></div> */}
         <div className='dic'>
         <p><a  href="/Add">Add Products</a></p>
 

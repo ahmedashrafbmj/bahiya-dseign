@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react'
+import React, {useState, useEffect,useContext} from 'react'
 import Header from '../Main/Header'
 import Sheader from '../Main/sHeader'
 
@@ -10,24 +10,50 @@ import { Alert } from '@mui/material';
 import { AlertTitle } from '@mui/material';
 import classes from './Order.module.css';
 import { Link } from 'react-router-dom';
+import "./Welcome.css"
 
-
-const Welcome2=(props)=>{
-
+const Welcome2=({data})=>{
+    console.log(data,"dataprop")
+    
     const history = useHistory()   
-
+    
     const [roleau, setroleau] = useState ('');
-      const [userState, setUserState] = useState([]);
+    const [userState, setUserState] = useState([]);
+    const [userState1, setUserState1] = useState([]);
+    const [userState2, setUserState2] = useState([]);
+    const [userState3, setUserState3] = useState([]);
+    const [userState4, setUserState4] = useState([]);
+    
+    const [useremail, setuserEmail] = useState([]);
+    
+    const [hotelname, sethotelname] = useState([]);
+    const getdata3 = async () => {
 
-      const [useremail, setuserEmail] = useState([]);
-
-      const [hotelname, sethotelname] = useState([]);
-
-
-const getdata = async () => {
-
-    const findEmail2 = localStorage.getItem('user'); 
-    // http://localhost:4000/api/allpostdata
+        const findEmail2 = localStorage.getItem('user'); 
+        // http://localhost:4000/api/allpostdata
+    
+        // `http://localhost:4000/api/postbyemail/${useremail}`
+    
+        // /api/allpostdata
+    
+        const res = await fetch(`/api/allgetcategory`, {
+            method: "GET",
+            headers: {
+                "Content-Type": "application/json"
+            }
+            
+        });
+    
+        const data = await res.json();
+        console.log(data,"datacater");
+        setUserState3(data);    
+    
+    }
+    console.log(userState3,"userState3")
+    const getdata = async () => {
+        
+        const findEmail2 = localStorage.getItem('user'); 
+        // http://localhost:4000/api/allpostdata
 
     // `http://localhost:4000/api/postbyemail/${useremail}`
 
@@ -44,9 +70,67 @@ const getdata = async () => {
     const data = await res.json();
     console.log(data);
     setUserState(data);    
+    
+}
+const getdata2 = async () => {
+
+
+    const res = await fetch(`/api/allsignup`, {
+        method: "GET",
+        headers: {
+            "Content-Type": "application/json"
+        }
+        
+    });
+
+    const data = await res.json();
+    console.log(data);
+    setUserState1(data); 
 
 }
 
+
+const getdata1 = async () => {
+
+
+    const res = await fetch(`/api/allpostbook`, {
+        method: "GET",
+        headers: {
+            "Content-Type": "application/json"
+        }
+        
+    });
+
+    const data = await res.json();
+    console.log(data);
+    setUserState2(data); 
+
+}
+const getdata4 = async () => {
+
+    const findEmail2 = localStorage.getItem('user'); 
+    // http://localhost:4000/api/allpostdata
+
+    // `http://localhost:4000/api/postbyemail/${useremail}`
+
+    // /api/allpostdata
+
+    const res = await fetch(`/api/allgetarea`, {
+        method: "GET",
+        headers: {
+            "Content-Type": "application/json"
+        }
+        
+    });
+
+    const data = await res.json();
+    console.log(data,'data');
+    setUserState4(data);    
+
+}
+
+const PetDataContext = useContext(userState)
+console.log(PetDataContext,"usecontextdata")
 
 const gethotelname = async () => {
     // http://localhost:4000/api/allpostdata
@@ -86,6 +170,10 @@ useEffect(()=>{
     setuserEmail(udata); 
     
     getdata()
+    getdata1()
+    getdata2()
+    getdata3()
+    getdata4()
 
 
 
@@ -167,143 +255,100 @@ return(
            (roleau === 'Admin' ? <Header />  : <Sheader />)
 
     }
-
-
-
-
-
-{/* <div className='Heading'><h1>Name: {hotelname}</h1> 
-<br />
-
-
-
-
-
-
-
-</div> */}
-
-
-<div style={{ backgroundColor: "",fontFamily:"cursive", minHeight: "100vh" }}>
-        <div className="container-xxl py-5">
-          <div className={`me-lg-4`}>
-            {/* <h2 className={`text-center pt-2 fw-bold`}>Order</h2> */}
-            <div className="table-responsive px-4 pt-4">
-              <table className={`table  ${classes.table}`}>
-                <thead className={classes.thead}>
-                  <tr>
-                    <th scope="col">S.No</th>
-                    <th scope="col">productTitle</th>
-                    <th scope="col">productName</th>
-                    <th scope="col">productWeight</th>
-                    <th scope="col">productQuantity</th>
-                    <th scope="col">productPrice</th>
-
-                    <th scope="col">productId</th>
-                    <th scope="col">Image</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {/* {
-                    Orders.map((item)=>(
-                      <OrderItem item={item}/>
-                    ))
-                  } */}
-                {
-                    userState.map((element,id)=>{
-                        return(
-                            <>
-                            <tr>
-        <td valign="middle">{id + 1}</td>
-        <td valign="middle">{element.productTitle}</td>
-        <td valign="middle">{element.productName}</td>
-        <td>{element.productWeight}</td>
-                                                <td>{element.qty}</td>
-                                                <td>{element.productPrice}</td>
-
-        <td  valign="middle">{element._id}</td>
-        <td className={`${classes.item} px-2`}>
-<img src={element.imageURL}alt=""/> 
-                {/* } */}
-        </td>
-        <Link to="Edit/${element._id}">
-        <td className={classes.btn} valign="middle">{"Edit"}</td>
-
-        </Link>
-        <td onClick={() => deletedata(element._id)} className={classes.btnDelete} valign="middle"><span className="pe-1">X</span>Delete</td>
-    </tr>
-                            </>
-                        )
-                    })
-                }
-                 
-                </tbody>
-              </table>
+    
+   <div className="row mt-5">
+        <div className="col-xl-3 col-lg-6">
+          <div className="card l-bg-style1" onClick={()=> history.push('/AllOrderUsers')}>
+            <div className="card-statistic-3">
+              <div className="card-icon card-icon-large"><i className="fa fa-award" /></div>
+              <div className="card-content">
+                <h4 className="card-title">New Orders</h4>
+                <span>{userState2.length}</span>
+                <div className="progress mt-1 mb-1" data-height={userState2.length}>
+                  <div className="progress-bar bg-dark" role="progressbar" data-width={userState2.length} aria-valuenow={userState2.length} aria-valuemin={0} aria-valuemax={100} />
+                </div>
+                <p className="mb-0 text-sm">
+                  <span className="mr-2"><i className="fa fa-arrow-up" /> 10%</span>
+                  <span className="text-nowrap">Since last month</span>
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div className="col-xl-3 col-lg-6" onClick={()=> history.push('/allUsers')}>
+          <div className="card l-bg-style2">
+            <div className="card-statistic-3">
+              <div className="card-icon card-icon-large"><i className="fa fa-briefcase" /></div>
+              <div className="card-content">
+                <h4 className="card-title">All Users</h4>
+                <span>{userState1.length}</span>
+                <div className="progress mt-1 mb-1" data-height={8}>
+                  <div className="progress-bar l-bg-orange" role="progressbar" data-width="25%" aria-valuenow={25} aria-valuemin={0} aria-valuemax={100} />
+                </div>
+                <p className="mb-0 text-sm">
+                  <span className="mr-2"><i className="fa fa-arrow-up" /> 10%</span>
+                  <span className="text-nowrap">Since last month</span>
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div className="col-xl-3 col-lg-6" onClick={()=> history.push('/AllProduct')}>
+          <div className="card l-bg-style3">
+            <div className="card-statistic-3">
+              <div className="card-icon card-icon-large"><i className="fa fa-globe" /></div>
+              <div className="card-content">
+                <h4 className="card-title">Total Products</h4>
+                <span>{userState?.length}</span>
+                <div className="progress mt-1 mb-1" data-height={userState?.length} >
+                  {/* <div className="progress-bar l-bg-cyan" role="progressbar" style={{background:"cyan",backgroundSize:"50%"}} data-width="25%" aria-valuenow={25} aria-valuemin={25} aria-valuemax={100} /> */}
+                </div>
+                <p className="mb-0 text-sm">
+                  <span className="mr-2"><i className="fa fa-arrow-up" /> 10%</span>
+                  <span className="text-nowrap">Since last month</span>
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div className="col-xl-3 col-lg-6" onClick={()=> history.push('/viewcategory')}>
+          <div className="card l-bg-style4">
+            <div className="card-statistic-3">
+              <div className="card-icon card-icon-large"><i className="fa fa-money-bill-alt" /></div>
+              <div className="card-content">
+                <h4 className="card-title">All Categorires</h4>
+                <span>{userState3.length}</span>
+                <div className="progress mt-1 mb-1" data-height={8}>
+                  <div className="progress-bar l-bg-green" role="progressbar" data-width="25%" aria-valuenow={25} aria-valuemin={0} aria-valuemax={100} />
+                </div>
+                <p className="mb-0 text-sm">
+                  <span className="mr-2"><i className="fa fa-arrow-up" /> 10%</span>
+                  <span className="text-nowrap">Since last month</span>
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div className="col-xl-3 col-lg-6" onClick={()=> history.push('/ViewArea')}>
+          <div className="card l-bg-style4">
+            <div className="card-statistic-3">
+              <div className="card-icon card-icon-large"><i className="fa fa-money-bill-alt" /></div>
+              <div className="card-content">
+                <h4 className="card-title">All Areas</h4>
+                <span>{userState4.length}</span>
+                <div className="progress mt-1 mb-1" data-height={8}>
+                  <div className="progress-bar l-bg-green" role="progressbar" data-width="25%" aria-valuenow={25} aria-valuemin={0} aria-valuemax={100} />
+                </div>
+                <p className="mb-0 text-sm">
+                  <span className="mr-2"><i className="fa fa-arrow-up" /> 10%</span>
+                  <span className="text-nowrap">Since last month</span>
+                </p>
+              </div>
             </div>
           </div>
         </div>
       </div>
-{/* <div className='MainDiva'>
-
-
-
-<table>
-                        <thead>
-                            <tr>
-                                <th>id</th>
-                                <th>Category</th>
-                                <th>Title</th>
-                                <th>Weight</th>
-                                <th> Qty</th>
-                                <th> Price</th>
-                                <th> Image</th>
-                                <th> Seller Info</th>
-                                <th>Product ID</th>
-                                <th>Edit</th>
-                                <th>Delete</th>
-                               
-  
-                            
-                            </tr>
-                        </thead>
-
-                        <tbody>
-            
-                            {
-                                userState.map((element, id) => {
-                                    return (
-
-
-                                        <>
-                                            <tr>
-                                                <th scope="row">{id + 1}</th>
-                                                <td>{element.productName}</td>
-                                                <td>{element.productTitle}</td>
-                                                <td>{element.productWeight}</td>
-                                                <td>{element.qty}</td>
-                                                <td>{element.productPrice}</td>
-                                               
-                                                <td><img src={element.imageURL} height='100px'></img></td>
-
-                                                <td>{element.hotelname}
-                                                <br />
-                                                {element.userEmail}
-                                                </td>
-
-                                                <td>{element._id}</td>
-                                                <td><Button sx= {{marginRight: 5}}  variant="contained" href={`Edit/${element._id}`}>Edit</Button></td>
-
-                                                <td><Button sx= {{marginRight: 5}}  variant="contained" onClick={() => deletedata(element._id)}>Delete</Button></td>
-                                      
-
-                                                
-                                            </tr>
-                                        </>
-                                    )
-                                })
-                            }
-                        </tbody>
-                    </table>
+      
 
 
 
@@ -311,7 +356,6 @@ return(
 
 
 
-</div> */}
 
 </>
 

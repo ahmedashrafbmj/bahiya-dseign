@@ -106,7 +106,7 @@ return(
                                 <Nav.Link as={Link} to="/about">About</Nav.Link>
                                 <Nav.Link as={Link} to="/contact">Contact</Nav.Link> */}
 
-<div className='btn'>
+<div className='btn' style={{marginLeft:"350px"}}>
 <a class="btn btn-primary" href="/" role="button">Home</a>
 <a class="btn btn-primary" href="/userProfile" role="button">Profile</a>
 <a class="btn btn-primary" href="/userbooking" role="button">My Orders</a>

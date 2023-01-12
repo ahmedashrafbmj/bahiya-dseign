@@ -9,7 +9,7 @@ import Sheader from '../Main/sHeader';
 
 
 
-const EditCategory=(props)=>{
+const EditCategory=({data})=>{
 
 
 
@@ -100,7 +100,7 @@ history.push('/viewcategory')
       
 
             
-    
+    console.log(productDetail.categoryName,"productDetail")
 
 return(
 
@@ -127,12 +127,12 @@ return(
                 <h1 className="form__title">Edit</h1>
 
                 <div className="form__div">
-                    <input type="text" className="form__input" placeholder= "" value={productDetail.categoryName}  onChange=  { (e)=>{setproductDetail({...productDetail, categoryName: e.target.value})} } />
+                    <input type="text" className="form__input" placeholder= "" defaultValue={productDetail.categoryName}  onChange=  { (e)=>{setproductDetail({...productDetail, categoryName: e.target.value})} } />
                     <label className="form__label">Category</label>
                 </div>
 
                 <div className="form__div">
-                    <input type="text" className="form__input" placeholder=" " value={productDetail.imageURL} onChange={ (e) =>{setproductDetail({...productDetail, imageURL: e.target.value })} } />
+                    <input type="text" className="form__input" placeholder=" " defaultValue={productDetail.imageURL} onChange={ (e) =>{setproductDetail({...productDetail, imageURL: e.target.value })} } />
                     <label  className="form__label"> Image</label>
                 </div>
 

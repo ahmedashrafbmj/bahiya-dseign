@@ -6,6 +6,7 @@ import Register from './Register/Register';
 import Welcome from './Welcome/Welcome';
 import Welcome2 from './Welcome/sWelcome';
 import Add from './Add';
+import AllProducts from './Welcome/AllProducts';
 import FourZeroFour from './FourZeroFour';
 import Edit from './Edit/Edit'
 import Home from './Home/Home';
@@ -98,6 +99,7 @@ const Router = (props) => {
         <PrivateRoute path="/adminProfile" component={AdminProfile} />
         <PrivateRoute path="/allUsers" component={AllUsers} />
         <PrivateRoute path="/viewcategory" component={ViewCategory} />
+        <PrivateRoute path="/AllProduct" component={AllProducts} />
         <PrivateRoute path="/viewcarousel" component={ViewCarousel} />
         <PrivateRoute path="/viewarea" component={ViewArea} />
         <PrivateRoute path="/editcategory/:id" component={EditCategory} />
