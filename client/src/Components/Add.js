@@ -278,7 +278,7 @@ let roleuseradmin = localStorage.getItem('role');
 
     
     else{
-        history.push('/welcome2')
+        history.push('/AllProduct')
     }
 
 

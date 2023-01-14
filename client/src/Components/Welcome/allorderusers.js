@@ -141,7 +141,7 @@ return(
     }
 
 
-<div className='Heading'><h1>All Orders </h1> 
+<div className='text-center pt-2 fw-bold'><h1>All Orders </h1> 
 
 <br />
 <br />
@@ -227,7 +227,7 @@ return(
                                                 Net: {element.totalNetAmount}
                                                 </td>
 
-                                                <td><a class="btn btn-primary" href={`SAdminOrderDetails/${element._id}`} role="button">Order Details</a>
+                                                <td><a class="btn btn-primary" href={`SAdminOrderDetails/${element._id}`} role="button">Product Details</a>
                                                 <br />
                                                 <br />
                                                 <a class="btn btn-primary" onClick={() => updatePost(element._id)} role="button">Status Update</a>

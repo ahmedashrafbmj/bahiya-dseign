@@ -17,6 +17,47 @@ const history = useHistory()
 const [roleau, setroleau] = useState ('');
 const [productDetail, setproductDetail] = useState({})
 
+const [img2, Setimg2] =useState('')
+
+const imgupdate =()=>{
+
+    Setimg2(productDetail.imageURL)
+    console.log(image, 'image')
+}
+
+
+useEffect(() => {
+    
+    imgupdate()
+    
+
+}, []);
+
+const [image, setImage] = useState(img2);
+const [loading, setLoading] = useState(false);
+const uploadImage = async e =>{
+    const files = e.target.files
+    const data = new FormData()
+    data.append('file', files[0])
+    data.append('upload_preset', 'testforecommerce')
+    setLoading(true)
+  
+    const res = await fetch("https://api.cloudinary.com/v1_1/fimgcloud/image/upload",
+    {
+      method: 'POST',
+      body: data
+    })
+  
+    const file = await res.json()
+    console.log(file)
+  
+    setImage(file.secure_url)
+  
+    setLoading(false)
+  
+  }   
+
+
 
 
 
@@ -131,12 +172,21 @@ return(
                     <label className="form__label">Category</label>
                 </div>
 
-                <div className="form__div">
-                    <input type="text" className="form__input" placeholder=" " defaultValue={productDetail.imageURL} onChange={ (e) =>{setproductDetail({...productDetail, imageURL: e.target.value })} } />
-                    <label  className="form__label"> Image</label>
-                </div>
+                {image ?  <div >
+                                        <img src={ loading ? "Loading ...": image} height="20px"/>
+                                        <label  className="form__label"> Image</label>
 
+                    </div> :  <>
+                    <div >
+                                        <img src={productDetail.imageURL} height="20px"/>
+                                        <label  className="form__label"> Image</label>
 
+                    </div>
+                                        </>
+
+                    }
+
+<input type='file' name = 'file' onChange = {uploadImage}/>
 
                 
                 

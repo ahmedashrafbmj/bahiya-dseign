@@ -138,7 +138,7 @@ return(
 <br />
 <br />
 
-<div className='Heading'><h1>All Users </h1> 
+<div className='text-center pt-2 fw-bold'><h1>All Users </h1> 
 
 <br />
 <br />

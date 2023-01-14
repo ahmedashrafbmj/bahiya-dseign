@@ -47,6 +47,10 @@ const getdata = async () => {
     setUserState(data);    
 
 }
+const update = (e)=>{
+    history.push(`/editcategory/${e}`)
+
+}
 
 
 const gethotelname = async () => {
@@ -187,8 +191,11 @@ return(
                   <tr>
                     <th scope="col">S.No</th>
                     <th scope="col">Category</th>
-                    <th scope="col">ID</th>
+                    {/* <th scope="col">ID</th> */}
                     <th scope="col">Image</th>
+                    <th scope="col">Delete</th>
+                    <th scope="col">Edit</th>
+
                     {/* <th scope="col">productQuantity</th>
                     <th scope="col">productPrice</th> */}
 
@@ -209,7 +216,8 @@ return(
                             <tr>
         <td valign="middle">{id + 1}</td>
         <td valign="middle">{element.categoryName}</td>
-        <td valign="middle">{element._id}</td>
+        {/* <td valign="middle">{element._id}</td> */}
+
         <td className={`${classes.item} px-2`}>
 <img src={element.imageURL}alt=""/> 
                 {/* } */}
@@ -219,11 +227,10 @@ return(
                                                 <td>{element.productPrice}</td>
 
         <td  valign="middle">{element._id}</td> */}
-        <Link to={`editcategory/${element._id}`}>
-        <td className={classes.btn} valign="middle">{"Edit"}</td>
+       
+        <td onClick={() => deletedata(element._id)} className={classes.btnDelete} valign="middle"><span className="pe-1"></span>Delete</td>
+        <td onClick={() => update(element._id)} className={`${classes.btn} mt-4`} valign="middle">Edit</td>
 
-        </Link>
-        <td onClick={() => deletedata(element._id)} className={classes.btnDelete} valign="middle"><span className="pe-1">X</span>Delete</td>
     </tr>
                             </>
                         )

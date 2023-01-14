@@ -256,19 +256,17 @@ return(
 
     }
     
-   <div className="row mt-5">
+   <div className="row mt-5 mx-5">
         <div className="col-xl-3 col-lg-6">
           <div className="card l-bg-style1" onClick={()=> history.push('/AllOrderUsers')}>
             <div className="card-statistic-3">
               <div className="card-icon card-icon-large"><i className="fa fa-award" /></div>
               <div className="card-content">
                 <h4 className="card-title">New Orders</h4>
-                <span>{userState2.length}</span>
-                <div className="progress mt-1 mb-1" data-height={userState2.length}>
-                  <div className="progress-bar bg-dark" role="progressbar" data-width={userState2.length} aria-valuenow={userState2.length} aria-valuemin={0} aria-valuemax={100} />
-                </div>
+                {/* <span>{userState2.length}</span> */}
+                {/* s */}
                 <p className="mb-0 text-sm">
-                  <span className="mr-2"><i className="fa fa-arrow-up" /> 10%</span>
+                  <span className="mr-2"><i className="fa fa-arrow-up" /> {userState2.length}%</span>
                   <span className="text-nowrap">Since last month</span>
                 </p>
               </div>
@@ -281,12 +279,10 @@ return(
               <div className="card-icon card-icon-large"><i className="fa fa-briefcase" /></div>
               <div className="card-content">
                 <h4 className="card-title">All Users</h4>
-                <span>{userState1.length}</span>
-                <div className="progress mt-1 mb-1" data-height={8}>
-                  <div className="progress-bar l-bg-orange" role="progressbar" data-width="25%" aria-valuenow={25} aria-valuemin={0} aria-valuemax={100} />
-                </div>
+                {/* <span>{userState1.length}</span> */}
+               
                 <p className="mb-0 text-sm">
-                  <span className="mr-2"><i className="fa fa-arrow-up" /> 10%</span>
+                  <span className="mr-2"><i className="fa fa-arrow-up" /> {userState1.length}%</span>
                   <span className="text-nowrap">Since last month</span>
                 </p>
               </div>
@@ -299,12 +295,10 @@ return(
               <div className="card-icon card-icon-large"><i className="fa fa-globe" /></div>
               <div className="card-content">
                 <h4 className="card-title">Total Products</h4>
-                <span>{userState?.length}</span>
-                <div className="progress mt-1 mb-1" data-height={userState?.length} >
-                  {/* <div className="progress-bar l-bg-cyan" role="progressbar" style={{background:"cyan",backgroundSize:"50%"}} data-width="25%" aria-valuenow={25} aria-valuemin={25} aria-valuemax={100} /> */}
-                </div>
+                {/* <span>{userState?.length}</span> */}
+              
                 <p className="mb-0 text-sm">
-                  <span className="mr-2"><i className="fa fa-arrow-up" /> 10%</span>
+                  <span className="mr-2"><i className="fa fa-arrow-up" /> {userState?.length}%</span>
                   <span className="text-nowrap">Since last month</span>
                 </p>
               </div>
@@ -317,12 +311,12 @@ return(
               <div className="card-icon card-icon-large"><i className="fa fa-money-bill-alt" /></div>
               <div className="card-content">
                 <h4 className="card-title">All Categorires</h4>
-                <span>{userState3.length}</span>
-                <div className="progress mt-1 mb-1" data-height={8}>
+                {/* <span>{userState3.length}</span> */}
+                {/* <div className="progress mt-1 mb-1" data-height={8}>
                   <div className="progress-bar l-bg-green" role="progressbar" data-width="25%" aria-valuenow={25} aria-valuemin={0} aria-valuemax={100} />
-                </div>
+                </div> */}
                 <p className="mb-0 text-sm">
-                  <span className="mr-2"><i className="fa fa-arrow-up" /> 10%</span>
+                  <span className="mr-2"><i className="fa fa-arrow-up" /> {userState3.length}%</span>
                   <span className="text-nowrap">Since last month</span>
                 </p>
               </div>
@@ -335,12 +329,12 @@ return(
               <div className="card-icon card-icon-large"><i className="fa fa-money-bill-alt" /></div>
               <div className="card-content">
                 <h4 className="card-title">All Areas</h4>
-                <span>{userState4.length}</span>
-                <div className="progress mt-1 mb-1" data-height={8}>
+                {/* <span>{userState4.length}</span> */}
+                {/* <div className="progress mt-1 mb-1" data-height={8}>
                   <div className="progress-bar l-bg-green" role="progressbar" data-width="25%" aria-valuenow={25} aria-valuemin={0} aria-valuemax={100} />
-                </div>
+                </div> */}
                 <p className="mb-0 text-sm">
-                  <span className="mr-2"><i className="fa fa-arrow-up" /> 10%</span>
+                  <span className="mr-2"><i className="fa fa-arrow-up" /> {userState4.length}%</span>
                   <span className="text-nowrap">Since last month</span>
                 </p>
               </div>

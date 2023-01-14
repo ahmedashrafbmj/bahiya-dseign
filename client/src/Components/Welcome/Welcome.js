@@ -498,7 +498,7 @@ return(
                     <div style={{ backgroundColor: "", minHeight: "100vh" }}>
         <div className="container-xxl py-5">
           <div className={`me-lg-4`}>
-            <h2 className={`text-center pt-2 fw-bold`}>Order</h2>
+            <h2 className={`text-center pt-2 fw-bold`}>All Products</h2>
             <div className="table-responsive px-4 pt-4">
               <table className={`table  ${classes.table}`}>
                 <thead className={classes.thead}>

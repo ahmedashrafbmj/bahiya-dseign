@@ -174,7 +174,10 @@ useEffect(() => {
     }, []);
 
 
+const update = (e)=>{
+    history.push(`/Edit/${e}`)
 
+}
 ///delelte single data
 
 const deletedata = async (id) => {
@@ -249,8 +252,9 @@ return(
                     <th scope="col">productQuantity</th>
                     <th scope="col">productPrice</th>
 
-                    <th scope="col">productId</th>
+                    {/* <th scope="col">productId</th> */}
                     <th scope="col">Image</th>
+                    <th scope="col">Actions</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -267,20 +271,27 @@ return(
         <td valign="middle">{id + 1}</td>
         <td valign="middle">{element.productTitle}</td>
         <td valign="middle">{element.productName}</td>
+        {/* <a> */}
+        {/* <td valign="middle">{"Edit"}</td> */}
+
+        {/* </a> */}
+
+                {/* <Link to={`Edit/${element._id}`}>
+        <td className={`classes.btn`} valign="middle">{"Edit"}</td>
+
+        </Link> */}
+
         <td>{element.productWeight}</td>
                                                 <td>{element.qty}</td>
                                                 <td>{element.productPrice}</td>
 
-        <td  valign="middle">{element._id}</td>
+        {/* <td  valign="middle">{element._id}</td> */}
         <td className={`${classes.item} px-2`}>
 <img src={element.imageURL}alt=""/> 
                 {/* } */}
         </td>
-        <Link to={`Edit/${element._id}`}>
-        <td className={classes.btn} valign="middle">{"Edit"}</td>
-
-        </Link>
-        <td onClick={() => deletedata(element._id)} className={classes.btnDelete} valign="middle"><span className="pe-1">X</span>Delete</td>
+        <td onClick={() => deletedata(element._id)} className={`${classes.btnDelete} mt-4`} valign="middle">Delete</td>
+        <td onClick={() => update(element._id)} className={`${classes.btn} mt-4`} valign="middle">Edit</td>
     </tr>
                             </>
                         )

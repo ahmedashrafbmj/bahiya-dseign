@@ -200,6 +200,11 @@ const logout=()=>{
 
 </div>
 <div className='dic'>
+        <p> <a  href="/AllProduct" >All Products</a>
+</p>
+
+</div>
+<div className='dic'>
         <p> <a  href="/AllOrderUsers" >All Orders</a>
 </p>
 

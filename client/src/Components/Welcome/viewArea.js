@@ -548,9 +548,10 @@ return(
                 <thead className={classes.thead}>
                   <tr>
                     <th scope="col">S.No</th>
-                    <th scope="col">Category</th>
-                    <th scope="col">ID</th>
+                    <th scope="col">Area Name</th>
+                    {/* <th scope="col">ID</th> */}
                     <th scope="col">Image</th>
+                    <th scope="col">Delete</th>
                     {/* <th scope="col">productQuantity</th>
                     <th scope="col">productPrice</th> */}
 
@@ -571,7 +572,7 @@ return(
                             <tr>
         <td valign="middle">{id + 1}</td>
         <td valign="middle">{element.categoryName}</td>
-        <td valign="middle">{element._id}</td>
+        {/* <td valign="middle">{element._id}</td> */}
         <td className={`${classes.item} px-2`}>
 <img src={element.imageURL}alt=""/> 
                 {/* } */}
@@ -585,7 +586,7 @@ return(
         <td className={classes.btn} valign="middle">{"Edit"}</td>
 
         </Link> */}
-        <td onClick={() => deletedata(element._id)} className={classes.btnDelete} valign="middle"><span className="pe-1">X</span>Delete</td>
+        <td onClick={() => deletedata(element._id)} className={classes.btnDelete} valign="middle"><span className="pe-1"></span>Delete</td>
     </tr>
                             </>
                         )

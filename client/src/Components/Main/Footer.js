@@ -18,7 +18,7 @@ return(
 <div className='MainDivf'>
 
 
-<small>Created By: Fayyaz Ahmed | <CopyrightIcon fontSize='small'/>2022. All Rigts Reserved.</small>
+<small>Created By:Zain Ashraf | <CopyrightIcon fontSize='small'/>2022. All Rigts Reserved.</small>
 
 <div className='navf'>
 

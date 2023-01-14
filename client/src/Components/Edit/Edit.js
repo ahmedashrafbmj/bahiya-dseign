@@ -225,19 +225,37 @@ return(
                 </div>
 
                 <div className="form__div">
-                    <input type="text" disabled="true" className="form__input" placeholder=" " value={productDetail.imageURL} onChange={ (e) =>{setproductDetail({...productDetail, imageURL: e.target.value })} } />
-                    <label  className="form__label"> Image</label>
-                </div>
+                    {image ?  <div >
+                                        <img src={ loading ? "Loading ...": image} height="20px"/>
+                                        <label  className="form__label"> Image</label>
 
+                    </div> :  <>
+                    <div >
+                                        <img src={productDetail.imageURL} height="20px"/>
+                                        <label  className="form__label"> Image</label>
+
+                    </div>
+                                        </>
+
+                    }
+                </div>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
                 <input type='file' name = 'file' onChange = {uploadImage}/>
-                {
+                {/* {
       loading?( //if
         <h3>Loading ... </h3>
       ): ( //else
 
-        <img src={image} width={{width: '20px'}} />
+        <img  src={image} width={{width: '20px'}} />
       )
-    }
+    } */}
 
     <br />
     <br />

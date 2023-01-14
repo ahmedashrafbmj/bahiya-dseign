@@ -8,7 +8,32 @@ import Sheader from '../Components/Main/sHeader';
 
 
 const Category=(props)=>{
+    const [loading, setLoading] = useState(false);
 
+    const [image, setImage] = useState("");
+
+    const uploadImage = async e =>{
+        const files = e.target.files
+        const data = new FormData()
+        data.append('file', files[0])
+        data.append('upload_preset', 'testforecommerce')
+        setLoading(true)
+      
+        const res = await fetch("https://api.cloudinary.com/v1_1/fimgcloud/image/upload",
+        {
+          method: 'POST',
+          body: data
+        })
+      
+        const file = await res.json()
+        console.log(file.url,'file')
+      
+        setImage(file.url)
+      
+        setLoading(false)
+      
+      }
+    
 
 
 const history = useHistory()
@@ -32,7 +57,7 @@ const addPost=()=>{
         const headers = { "Content-Type": "application/json" };
         axios.post(`/api/allpostcategory`,{
             categoryName:categoryDetail.categoryName,
-            imageURL:categoryDetail.imageURL,
+            imageURL:image,
             userEmail: localStorage.getItem('user'),
             hotelname: localStorage.getItem('hotel'),
 },{
@@ -114,10 +139,20 @@ return(
                 </div>
 
 
-                <div className="form__div">
+                {/* <div className="form__div">
                     <input type="text" className="form__input" placeholder=" " onChange={ (e)=>{setcategoryDetail({...categoryDetail, imageURL: e.target.value})} } />
                     <label  className="form__label"> Image</label>
-                </div>
+                </div> */}
+                                <input type='file' name = 'file' onChange = {uploadImage}/>
+                {
+      loading?( //if
+        <h3>Loading ... </h3>
+      ): ( //else
+
+        <img src={image} width={{width: '20px'}} />
+      )
+    }
+
 
                 <input type="button" className="form__button" value="Add" onClick={()=>{addPost()}} />
             </form>
